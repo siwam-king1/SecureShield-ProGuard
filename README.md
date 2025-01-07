@@ -2,6 +2,18 @@
 
 **Ultimate ProGuard Configuration for Android Security**  
 Efficiently secure, obfuscate, and optimize your Android app with this powerful ProGuard ruleset.
+## **Changing the Package Name**  
+To make this ProGuard configuration work with your app, replace all instances of `uk.lgl` with your app's actual package name.
+
+For example, if your package name is `com.example.app`, you should replace all occurrences of `uk.lgl` with `com.example.app` in the ProGuard file.
+
+This includes the package name for:
+- **MainActivity**
+- **ModMenu**
+- **API models**
+- Any other references to `uk.lgl`
+
+Make sure the package name used in the ProGuard file matches the package name of your app.
 
 ---
 
