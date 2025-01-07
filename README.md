@@ -25,28 +25,58 @@ Make sure the package name used in the ProGuard file matches the package name of
 - 🔐 **Sensitive Code Protection**: Safeguards encryption methods, API models, and other sensitive logic.
 
 ---
+---
 
-## **Installation**  
-1. Download the `proguard-rules.pro` file.
-2. Place it in the root of your Android project.
-3. In your `build.gradle` (Module: app), add the ProGuard file to your release build configuration:
-    ```groovy
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    ```
+# **ProGuard Setup Guide**
+
+Follow these steps to set up ProGuard and optimize your Android app:
+
+### **Step 1: Update ProGuard Configuration**
+- Open the `proguard-rules.pro` file in your project.
+- Replace all instances of `com.mycompany.myapp` with **your app’s package name**.  
+  Example: If your package name is `com.example.myapp`, replace accordingly.
 
 ---
 
-## **Usage**  
-1. Copy the `proguard-rules.pro` file into your project.  
-2. Update your `build.gradle` file to include the ProGuard configuration.
-3. Build your app for release with optimized obfuscation and security.
+### **Step 2: Enable ProGuard in `build.gradle`**
+- Open the `build.gradle` file located in your app module.
+- Ensure the following lines are added to the `release` block:
+  ```gradle
+  buildTypes {
+      release {
+          minifyEnabled true
+          shrinkResources true
+          proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      }
+  }
+  ```
 
 ---
+
+### **Step 3: Enable Dex Optimization in AIDE**
+- Open **AIDE Settings**.
+- Navigate to **Build > Advanced > Build and Run**.
+- Enable the **Dex Optimization** option.
+
+---
+
+### **Step 4: Refresh the Build in AIDE**
+- Tap the **three dots** in the top-right corner of AIDE.
+- Go to **Projects**.
+- Select **Refresh Build**.
+
+---
+
+### **Step 5: Generate and Install APK**
+- Open **Build > Generate Signed APK** in AIDE.
+- Follow the steps to create a signed APK file.
+- Install the APK on your device.
+
+---
+
+### **Note**
+- Ensure you’ve replaced all instances of `com.mycompany.myapp` in your code and ProGuard rules.
+- Obfuscation and optimization will only work for release builds
 
 ## **Benefits**  
 - **Security**: Obfuscates sensitive code, making it harder for attackers to reverse-engineer.
